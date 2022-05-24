@@ -1,10 +1,22 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App'
-import './index.css'
+import React from "react";
+import ReactDOM from "react-dom/client";
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+import { ChakraProvider, extendTheme } from "@chakra-ui/react";
+
+import App from "./App";
+
+const theme = extendTheme({
+  fonts: {
+    body: "Poppins",
+    heading: "Poppins",
+    mono: "Poppins",
+  },
+});
+
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <App />
+    <ChakraProvider theme={theme}>
+      <App />
+    </ChakraProvider>
   </React.StrictMode>
-)
+);
